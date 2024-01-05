@@ -17,7 +17,7 @@ docker compose up -d
 ```
 npx prisma init
 npx prisma migrate dev     luego(cualtuier nombre ej:'dev')
-npx prisma generate
+npx prisma generate  //para general el cliente de prisma
 ```
 
 #prod

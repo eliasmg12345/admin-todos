@@ -8,17 +8,17 @@ pasos para levantar la app en desarrollo
 docker compose up -d
 ```
 
-2. Renombra en .env.template a .env
+2. Crear y renombrar en .env.template a .env
 3. reemplazar las variables de entorno
-4. ejecutar el seed para crear la db local (local:3000/api/seed)
 
 
 #Prisma commands
 ```
-npx prisma init
+//npx prisma init
 npx prisma migrate dev     luego(cualtuier nombre ej:'dev')
 npx prisma generate  //para general el cliente de prisma
 ```
+4. ejecutar el seed para crear la db local (local:3000/api/seed)
 
 #prod
 

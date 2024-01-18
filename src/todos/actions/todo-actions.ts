@@ -5,7 +5,17 @@ import { Todo } from "@prisma/client"
 import { revalidatePath } from "next/cache"
 
 
+export const sleep = (seconds: number = 0) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve
+        }, seconds * 1000);
+    })
+}
+
 export const toggleTodo = async (id: string, complete: boolean): Promise<Todo> => {
+    //await sleep(3)
+
     const todo = await prisma.todo.findFirst({ where: { id } })
 
     if (!todo) {
@@ -38,9 +48,9 @@ export const addTodo = async (description: string) => {
 }
 
 export const deleteCompletedTodos = async (): Promise<void> => {
-    
-        const todo = await prisma.todo.deleteMany({ where: { complete: true } })
-        revalidatePath('/dashboard/server-todos')
 
-    
+    const todo = await prisma.todo.deleteMany({ where: { complete: true } })
+    revalidatePath('/dashboard/server-todos')
+
+
 }

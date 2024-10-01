@@ -10,13 +10,17 @@ export default async function  DashboardPage() {
         redirect('/api/auth/signin')
     }
     return (
-        <div className="grid gap-6 sm:grid-cols-2 grid-cols-1">
+        <div className="grid gap-6 grid-cols-1">
            
            <WidegtItem title="Usuario conectado Server-Side">
                 <div className="flex flex-col">
                     <span>{session.user?.name}</span>
                     <span>{session.user?.image}</span>
                     <span>{session.user?.email}</span>
+
+                    <div className="">
+                        {JSON.stringify(session)}
+                    </div>
                 </div>
            </WidegtItem>
         </div>

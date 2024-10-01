@@ -5,11 +5,17 @@ import { IoTrashOutline } from "react-icons/io5";
 //import * as todosApi from "@/todos/helpers/todos";
 //import { useRouter } from "next/navigation";
 import { addTodo, deleteCompletedTodos } from "../actions/todo-actions";
+import { createTodo } from "../helpers/todos";
+import { useRouter } from "next/navigation";
 
+type Days = ['Lunes','Martes','Miercoles']
 
-export const NewTodo = () => {
-    //const router = useRouter()
+interface Props {
+    days: Days[]
+}
 
+export const NewTodo = ({days}:Props) => {
+    const router = useRouter()
     const [description, setDescription] = useState('')
 
 
@@ -18,8 +24,9 @@ export const NewTodo = () => {
 
         if (description.trim().length === 0) return
 
-        console.log('form submited', description);
-        await addTodo(description)
+        //await addTodo(description)
+        await createTodo(description)
+        router.refresh()
         setDescription('')
         //router.refresh()
 

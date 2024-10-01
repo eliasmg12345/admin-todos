@@ -20,6 +20,10 @@ npx prisma generate  //para general el cliente de prisma
 ```
 4. ejecutar el seed para crear la db local (local:3000/api/seed)
 
+## Nota: usuario por defecto
+__usuario:__ test1@google.com
+__password:__ 123456
+
 #prod
 
 

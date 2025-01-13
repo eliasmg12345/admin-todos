@@ -28,9 +28,9 @@ export const updateTodo = async (id: string, complete: boolean): Promise<Todo> =
 
 }
 
-export const createTodo = async (description: string): Promise<Todo> => {
+export const createTodo = async (description: string,day:string): Promise<Todo> => {
 
-    const body = { description }
+    const body = { description, day }
 
     const dbTodo = await fetch(`/api/todos`, {
         method: 'POST',

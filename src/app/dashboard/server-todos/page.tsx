@@ -5,7 +5,6 @@ export const revalidate = 0
 import { getUserSessionServer } from "@/app/auth/actions/auth-actions";
 import prisma from "@/lib/prisma";
 import { NewTodo, TodosGrid } from "@/todos";
-import { TodosDay } from "@/todos/components/TodosDay";
 import { redirect } from "next/navigation";
 
 
@@ -31,10 +30,8 @@ export default async function ServerTodosPage() {
 
       <div className="w-full px-3 mx-5 mb-5">
 
-        <NewTodo days={[]} />
+        <NewTodo />
       </div>
-      <TodosDay />
-
       <TodosGrid todos={todos} />
     </>
   );

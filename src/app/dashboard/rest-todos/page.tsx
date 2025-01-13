@@ -29,7 +29,7 @@ export default async function RestTodosPage() {
     <div>
       <div className="w-full px-3 mx-5 mb-5">
 
-        <NewTodo days={[]} />
+        <NewTodo />
       </div>
 
       <TodosGrid todos={todos} />

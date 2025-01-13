@@ -1,18 +1,27 @@
+import Link from "next/link";
 
 export default function ExtraPage() {
   return (
-    <div>
-      <h1>Hello EXTRA</h1>
-      <table>
-        <tr className="border">
-            <td>lunes</td>
-            <td>martes</td>
-        </tr>
-        <tr className="border">
-            <td>tarea lunes 1</td>
-            <td>tarea lunes 2</td>
-        </tr>
-      </table>
+    <div className="flex flex-col">
+      <h1 className="mb-20">Hello EXTRA</h1>
+      <Link 
+      href="/dashboard/extra/crucigram"
+      className="text-xl font-bold hover:text-blue-500"
+      >
+        Crucigram
+      </Link>
+      <Link 
+      href="/dashboard/extra/crucigram-make"
+      className="text-xl font-bold hover:text-blue-500"
+      >
+        Crucigram Maker
+      </Link>
+      <Link 
+      href="/dashboard/extra/crucigram-done"
+      className="text-xl font-bold hover:text-blue-500"
+      >
+        Crucigram Done
+      </Link>
     </div>
   );
 }

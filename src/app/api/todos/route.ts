@@ -29,19 +29,20 @@ export async function GET(request: Request) {
 const postSchema = yup.object({
     description: yup.string().required(),
     complete: yup.boolean().optional().default(false),
+    day: yup.string().required(),
 })
 
 
 export async function POST(request: Request) {
 
     const user = await getUserSessionServer()
-    if(!user) return NextResponse.json('No autorizado',{status:401})
+    if (!user) return NextResponse.json('No autorizado', { status: 401 })
 
     try {
 
-        const { complete, description } = await postSchema.validate(await request.json())
+        const { complete, description, day } = await postSchema.validate(await request.json())
 
-        const todo = await prisma.todo.create({ data: { complete, description,day:'x', userId:user.id } })
+        const todo = await prisma.todo.create({ data: { complete, description, day, userId: user.id } })
 
         return NextResponse.json(todo)
     } catch (error) {
@@ -53,10 +54,10 @@ export async function POST(request: Request) {
 export async function DELETE(request: Request) {
 
     const user = await getUserSessionServer()
-    if(!user) return NextResponse.json('No autorizado',{status:401})
+    if (!user) return NextResponse.json('No autorizado', { status: 401 })
 
     try {
-        const todo = await prisma.todo.deleteMany({ where: { complete: true,userId:user.id } })
+        const todo = await prisma.todo.deleteMany({ where: { complete: true, userId: user.id } })
         return NextResponse.json('Exito de borrado')
     } catch (error) {
         return NextResponse.json(error, { status: 400 })

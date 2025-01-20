@@ -11,6 +11,12 @@ export const MakeCell = () => {
     const [left, setLeft] = useState(false)
     const [right, setRight] = useState(false)
 
+    const [textTop, setTextTop] = useState('-')
+    const [textBottom, setTextBottom] = useState('-')
+    const [textLeft, setTextLeft] = useState('-')
+    const [textRight, setTextRight] = useState('-')
+
+
     return (
         <div className="cell ">
             <div
@@ -24,7 +30,7 @@ export const MakeCell = () => {
                 }
                 className="top cursor-pointer hover:text-sky-600 border border-sky-500"
             >
-                top
+                {textTop}
             </div>
             <div
                 onClick={
@@ -37,7 +43,7 @@ export const MakeCell = () => {
                 }
                 className="right cursor-pointer hover:text-sky-600 border border-sky-500"
             >
-                right
+                {textRight}
             </div>
             <div
                 onClick={
@@ -50,7 +56,7 @@ export const MakeCell = () => {
                 }
                 className="bottom cursor-pointer hover:text-sky-600 border border-sky-500"
             >
-                bottom
+                {textBottom}
             </div>
             <div
                 onClick={
@@ -63,7 +69,7 @@ export const MakeCell = () => {
                 }
                 className="left cursor-pointer hover:text-sky-600 border border-sky-500"
             >
-                left
+                {textLeft}
             </div>
             {
                 // top ? (
@@ -76,7 +82,7 @@ export const MakeCell = () => {
                 //     <MakeText top={top} bottom={bottom} left={left} right={right} />
                 // ) : (<></>)
                 
-                <MakeText top={top} bottom={bottom} left={left} right={right} />
+                <MakeText valueTextTop={setTextTop} valueTextBottom={setTextBottom} valueTextLeft={setTextLeft} valueTextRight={setTextRight} top={top} bottom={bottom} left={left} right={right} />
 
             }
 

@@ -57,15 +57,20 @@ body {
 
 .cell .left {
   position: absolute;
-  top: 2rem;
-  height: 6rem;
+  top: 4rem;
+  left: -2rem;
+  height: 2rem;
+  width: 6rem;
+  transform: rotate(-90deg);
 }
 
 .cell .right {
   position: absolute;
-  top: 2rem;
-  right: 0rem;
-  height: 6rem;
+  top: 4rem;
+  right: -2rem;
+  height: 2rem;
+  width: 6rem;
+  transform: rotate(90deg);
 }
 
 .text{

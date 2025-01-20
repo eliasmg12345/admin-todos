@@ -7,10 +7,13 @@ interface Props {
     bottom: boolean
     left: boolean
     right: boolean
+    valueTextTop: (value: string) => void
+    valueTextBottom: (value: string) => void
+    valueTextLeft: (value: string) => void
+    valueTextRight: (value: string) => void
 }
 
-export const MakeText = ({ top, bottom, left, right }: Props) => {
-    const [text, setText] = useState('')
+export const MakeText = ({ top, bottom, left, right, valueTextTop, valueTextBottom, valueTextLeft, valueTextRight }: Props) => {
     const [leave, setLeave] = useState('')
     console.log({ top, bottom, left, right });
 
@@ -24,27 +27,34 @@ export const MakeText = ({ top, bottom, left, right }: Props) => {
         >
             {
                 top ?
-                    'top'
+                    <input
+                        type="text"
+                        onChange={e => valueTextTop(e.target.value)}
+                    />
                     : bottom ?
-                        'bottom'
+                        <input
+                            type="text"
+                            onChange={e => valueTextBottom(e.target.value)}
+                        />
                         : left ?
-                            'left'
+                            <input
+                                type="text"
+                                onChange={e => valueTextLeft(e.target.value)}
+                            />
                             : right &&
-                            'right'
+                            <input
+                                type="text"
+                                onChange={e => valueTextRight(e.target.value)}
+                            />
 
             }
 
-            <input
-                type="text"
-                onChange={e => setText(e.target.value)}
-                onDragLeave={() => setLeave('leaved')}
-            />
-            <p>
-                {
-                    text
-                }
-                {leave}
-            </p>
+
+            <div
+                className="fade-in backdrop-filter backdrop-blur-sm"
+                onClick={() => setLeave('leaved')}
+            >
+            </div>
         </div>
     )
 }
